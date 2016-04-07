@@ -6,9 +6,7 @@ using UnityEngine.EventSystems;
 
 public class UI : MonoBehaviour {
 	public Text timeT;
-	public Text lapT;
 	private float timeF=0f;
-	private float lapF = 3f;
 
 
 	// Use this for initialization
@@ -20,9 +18,5 @@ public class UI : MonoBehaviour {
 	void Update () {
 		timeT.text = string.Format ("Time: {0}",timeF);
 		timeF+=Time.deltaTime;
-		lapT.text = string.Format ("Laps: {0}", lapF);
-	}
-	public void incLap(){
-		lapF -= 1f;
 	}
 }
