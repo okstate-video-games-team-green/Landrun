@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AIScript : MonoBehaviour {
+public class boundryScript : MonoBehaviour {
     private Transform[] waypoints;
     private int currentWaypoint = 0;
-	private float rotationSpeed = 100f;
 
     public GameObject waypointContainer;
-    public float speed = 500f;
 
 	// Use this for initialization
 	void Start () {
@@ -42,19 +40,23 @@ public class AIScript : MonoBehaviour {
 		Vector3 movementVector = NavigateTowardWaypoint();
 
 		// Set velocity to direction * speed * deltaTime.
-		GetComponent<Rigidbody>().velocity = movementVector.normalized * speed * Time.deltaTime;
+		//GetComponent<Rigidbody>().velocity = movementVector.normalized * speed * Time.deltaTime;
 		//GetComponent<Rigidbody>().rotation = Quaternion.Euler((movementVector.normalized) * rotationSpeed * Time.deltaTime);
 		//GetComponent<Rigidbody>().rotation = Quaternion.Euler(0,movementVector.y-30,0);
 		//transform.LookAt(movementVector);
 		//movementVector.y=0;
-		transform.rotation = Quaternion.LookRotation(-movementVector);
+		if (movementVector.magnitude >= 500.0f) {
+			transform.position = waypoints [currentWaypoint].position;
+			transform.rotation = Quaternion.LookRotation(-movementVector);
+		}
+
 	}
 
     Vector3 NavigateTowardWaypoint()
     {
 		// This tells us how close we get to a waypoint before we turn our attention
 		// to the next waypoint.
-		float neighborhood = 10.6f;
+		float neighborhood = 100.0f;
 
 		Vector3 movementVector =
 			waypoints[currentWaypoint].position - transform.position;
