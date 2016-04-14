@@ -4,6 +4,7 @@ using System.Collections;
 public class boundryScript : MonoBehaviour {
     private Transform[] waypoints;
     private int currentWaypoint = 0;
+	private int lastWaypoint = 0;
 
     public GameObject waypointContainer;
 
@@ -45,9 +46,9 @@ public class boundryScript : MonoBehaviour {
 		//GetComponent<Rigidbody>().rotation = Quaternion.Euler(0,movementVector.y-30,0);
 		//transform.LookAt(movementVector);
 		//movementVector.y=0;
-		if (movementVector.magnitude >= 500.0f) {
-			transform.position = waypoints [currentWaypoint].position;
-			transform.rotation = Quaternion.LookRotation(-movementVector);
+		if (movementVector.magnitude >= 650.0f) {
+			transform.position = waypoints [lastWaypoint].position;
+			transform.rotation = Quaternion.LookRotation(movementVector);
 		}
 
 	}
@@ -56,7 +57,7 @@ public class boundryScript : MonoBehaviour {
     {
 		// This tells us how close we get to a waypoint before we turn our attention
 		// to the next waypoint.
-		float neighborhood = 100.0f;
+		float neighborhood = 400.0f;
 
 		Vector3 movementVector =
 			waypoints[currentWaypoint].position - transform.position;
@@ -67,13 +68,15 @@ public class boundryScript : MonoBehaviour {
 		if (movementVector.magnitude <= neighborhood)
         {
 			// Yes; focus our attention on the next waypoint in the path.
+			lastWaypoint=currentWaypoint;
 			currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
 //			int rand = Random.Range(1, waypoints.Length -1);
 //          currentWaypoint = (currentWaypoint + rand) % waypoints.Length;
 
            // print("Current waypoint: " + currentWaypoint + "    Relative Position: " + movementVector);
         }
-
+		movementVector =
+			waypoints[lastWaypoint].position - transform.position;
         return movementVector;
     }
 }
