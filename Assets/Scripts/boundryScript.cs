@@ -37,7 +37,7 @@ public class boundryScript : MonoBehaviour {
 //		transform.position = Vector3.MoveTowards (transform.position, waypoints [currentWaypoint].position, speed * Time.deltaTime);
 //	}
 
-	void FixedUpdate () {
+	void Update () {
 		Vector3 movementVector = NavigateTowardWaypoint();
 
 		// Set velocity to direction * speed * deltaTime.
@@ -46,7 +46,7 @@ public class boundryScript : MonoBehaviour {
 		//GetComponent<Rigidbody>().rotation = Quaternion.Euler(0,movementVector.y-30,0);
 		//transform.LookAt(movementVector);
 		//movementVector.y=0;
-		if (movementVector.magnitude >= 1000.0f) {
+		if (movementVector.magnitude >= 1600.0f) {
 			transform.position = waypoints [lastWaypoint].position;
 			transform.rotation = Quaternion.LookRotation(movementVector);
 		}
@@ -57,12 +57,12 @@ public class boundryScript : MonoBehaviour {
     {
 		// This tells us how close we get to a waypoint before we turn our attention
 		// to the next waypoint.
-		float neighborhood = 500.0f;
+		float neighborhood = 600.0f;
 
-		Vector3 movementVector =
-			waypoints[currentWaypoint].position - transform.position;
+		Vector3 movementVector = waypoints[currentWaypoint].position - transform.position;
 
 		//print("*** Distance: " + movementVector.magnitude);
+		//print (currentWaypoint);
 
 		// Are we in the neighborhood of the target waypoint?
 		if (movementVector.magnitude <= neighborhood)
@@ -73,10 +73,10 @@ public class boundryScript : MonoBehaviour {
 //			int rand = Random.Range(1, waypoints.Length -1);
 //          currentWaypoint = (currentWaypoint + rand) % waypoints.Length;
 
-           // print("Current waypoint: " + currentWaypoint + "    Relative Position: " + movementVector);
+          // print("Current waypoint: " + currentWaypoint + "    Relative Position: " + movementVector);
         }
-		movementVector =
-			waypoints[lastWaypoint].position - transform.position;
+		movementVector = waypoints[lastWaypoint].position - transform.position;
+		//print("*** Distance: " + movementVector.magnitude);
         return movementVector;
     }
 }
