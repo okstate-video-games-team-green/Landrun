@@ -6,6 +6,9 @@ public class AIScript : MonoBehaviour {
     private int currentWaypoint = 0;
 	private float rotationSpeed = 100f;
 
+	private bool spinO=false;
+	private int spinC=0;
+
     public GameObject waypointContainer;
     public float speed = 500f;
 
@@ -33,21 +36,35 @@ public class AIScript : MonoBehaviour {
 		// Set the velocity of the player.
         //GetComponent<Rigidbody>().velocity = Vector3.up * speed;
 	}
+	void FixedUpdate(){
+		if (spinO && spinC < 4) {
+			var lookPos = waypoints[currentWaypoint].position - transform.position;
+			lookPos.y = 0;
+			var rotation = Quaternion.LookRotation(lookPos);
+			rotation *= Quaternion.Euler(0, 90, 0); // this add a 90 degrees Y rotation
+			transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime*50);
+			spinC++;
+			print ("spin out ai");
+		} else {
+			spinO = false;
+			spinC = 0;
+		}
+	}
 
 //	void Update() {
 //		transform.position = Vector3.MoveTowards (transform.position, waypoints [currentWaypoint].position, speed * Time.deltaTime);
 //	}
 
-	void FixedUpdate () {
+	void Update () {
 		Vector3 movementVector = NavigateTowardWaypoint();
 
 		// Set velocity to direction * speed * deltaTime.
-		GetComponent<Rigidbody>().velocity = movementVector.normalized * speed * Time.deltaTime;
+		//GetComponent<Rigidbody>().velocity = movementVector.normalized * speed * Time.deltaTime;
 		//GetComponent<Rigidbody>().rotation = Quaternion.Euler((movementVector.normalized) * rotationSpeed * Time.deltaTime);
 		//GetComponent<Rigidbody>().rotation = Quaternion.Euler(0,movementVector.y-30,0);
 		//transform.LookAt(movementVector);
 		//movementVector.y=0;
-		transform.rotation = Quaternion.LookRotation(-movementVector);
+		//transform.rotation = Quaternion.LookRotation(-movementVector);
 	}
 
     Vector3 NavigateTowardWaypoint()
@@ -74,4 +91,12 @@ public class AIScript : MonoBehaviour {
 
         return movementVector;
     }
+	void OnTriggerEnter(Collider other){
+		Vector3 plVec = waypoints [currentWaypoint].position - other.transform.position;
+		Vector3 aiVec = waypoints [currentWaypoint].position - transform.position;
+		if (other.name.Equals("Cube")&&plVec.magnitude>aiVec.magnitude){
+			//print ("spin out ai");
+			spinO=true;
+		}
+	}
 }

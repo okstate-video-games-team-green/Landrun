@@ -9,7 +9,53 @@ public delegate void OnEndCallback();
 public class SplineInterpolator : MonoBehaviour
 {
 	eEndPointsMode mEndPointsMode = eEndPointsMode.AUTO;
-
+	private Transform[] waypoints;
+	private int currentWaypoint = 0;
+	private bool spinO=false;
+	private int spinC=0;
+	public GameObject waypointContainer;
+	void Start () {
+		Transform[] potentialWaypoints = waypointContainer.GetComponentsInChildren<Transform>();
+		waypoints = new Transform[potentialWaypoints.Length - 1]; 
+		for (int i = 0, j = 0; i < potentialWaypoints.Length; i++)
+		{
+			if (potentialWaypoints[i] != waypointContainer.transform)
+			{
+				waypoints[j++] = potentialWaypoints[i];
+			}
+		}
+	}
+	void FixedUpdate(){
+		NavigateTowardWaypoint();
+		if (spinO && spinC < 4) {
+			var lookPos = waypoints[currentWaypoint].position - transform.position;
+			lookPos.y = 0;
+			var rotation = Quaternion.LookRotation(lookPos);
+			rotation *= Quaternion.Euler(0, 90, 0); // this add a 90 degrees Y rotation
+			transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime*100);
+			spinC++;
+			print ("spin out ai");
+		} else {
+			spinO = false;
+			spinC = 0;
+		}
+	}
+	Vector3 NavigateTowardWaypoint(){
+		float neighborhood = 10.6f;
+		Vector3 movementVector =waypoints[currentWaypoint].position - transform.position;
+		if (movementVector.magnitude <= neighborhood){
+			currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
+		}
+		return movementVector;
+	}
+	void OnTriggerEnter(Collider other){
+		Vector3 plVec = waypoints [currentWaypoint].position - other.transform.position;
+		Vector3 aiVec = waypoints [currentWaypoint].position - transform.position;
+		if (other.name.Equals("Cube")&&plVec.magnitude>aiVec.magnitude){
+			//print ("spin out ai");
+			spinO=true;
+		}
+	}
 	internal class SplineNode
 	{
 		internal Vector3 Point;
@@ -149,7 +195,7 @@ public class SplineInterpolator : MonoBehaviour
 			}
 			else
 			{
-				if (mState != "Loop")
+				if ((mState != "Loop")&&(spinO==false))
 				{
 					mState = "Stopped";
 
@@ -171,7 +217,7 @@ public class SplineInterpolator : MonoBehaviour
 			}
 		}
 
-		if (mState != "Stopped")
+		if (mState != "Stopped"&&!spinO)
 		{
 			// Calculates the t param between 0 and 1
 			float param = (mCurrentTime - mNodes[mCurrentIdx].Time) / (mNodes[mCurrentIdx + 1].Time - mNodes[mCurrentIdx].Time);

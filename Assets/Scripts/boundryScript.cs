@@ -5,6 +5,8 @@ public class boundryScript : MonoBehaviour {
     private Transform[] waypoints;
     private int currentWaypoint = 0;
 	private int lastWaypoint = 0;
+	private bool spinO=false;
+	private int spinC=0;
 
     public GameObject waypointContainer;
 
@@ -36,6 +38,20 @@ public class boundryScript : MonoBehaviour {
 //	void Update() {
 //		transform.position = Vector3.MoveTowards (transform.position, waypoints [currentWaypoint].position, speed * Time.deltaTime);
 //	}
+	void FixedUpdate(){
+		if (spinO && spinC < 4) {
+			var lookPos = waypoints[currentWaypoint].position - transform.position;
+			 lookPos.y = 0;
+			 var rotation = Quaternion.LookRotation(lookPos);
+			 rotation *= Quaternion.Euler(0, 90, 0); // this add a 90 degrees Y rotation
+			 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime*50);
+			spinC++;
+			print ("spin out player");
+		} else {
+			spinO = false;
+			spinC = 0;
+		}
+	}
 
 	void Update () {
 		Vector3 movementVector = NavigateTowardWaypoint();
@@ -79,4 +95,12 @@ public class boundryScript : MonoBehaviour {
 		//print("*** Distance: " + movementVector.magnitude);
         return movementVector;
     }
+	void OnTriggerEnter(Collider other){
+		Vector3 aiVec = waypoints [currentWaypoint].position - other.transform.position;
+		Vector3 plVec = waypoints [currentWaypoint].position - transform.position;
+		if (other.name.Equals("Cube")&&plVec.magnitude<aiVec.magnitude){
+			//print ("spin out player");
+			spinO=true;
+		}
+	}
 }
