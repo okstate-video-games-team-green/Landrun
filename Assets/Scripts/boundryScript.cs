@@ -5,6 +5,10 @@ public class boundryScript : MonoBehaviour {
     private Transform[] waypoints;
     private int currentWaypoint = 0;
 	private int lastWaypoint = 0;
+	private bool spinO=false;
+	private int spinC=0;
+	private Vector3 lookPos;
+	private Quaternion rotation;
 
     public GameObject waypointContainer;
 
@@ -28,41 +32,41 @@ public class boundryScript : MonoBehaviour {
                 waypoints[j++] = potentialWaypoints[i];
             }
         }
-
-		// Set the velocity of the player.
-        //GetComponent<Rigidbody>().velocity = Vector3.up * speed;
+	}
+	void FixedUpdate(){//implements the spin out animation 
+		if (spinO && spinC == 0) {
+			lookPos = waypoints[currentWaypoint].position - transform.position;
+			lookPos.y = 0;
+			rotation = Quaternion.LookRotation(lookPos);
+			spinC++;
+		}
+		else if (spinO && spinC < 360) {
+			
+			 rotation *= Quaternion.Euler(0, 1, 0); // this add a 1 degree Y rotation
+			 transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
+			spinC++;
+		} else {
+			spinO = false;
+			spinC = 0;
+		}
 	}
 
-//	void Update() {
-//		transform.position = Vector3.MoveTowards (transform.position, waypoints [currentWaypoint].position, speed * Time.deltaTime);
-//	}
-
-	void FixedUpdate () {
+	void Update () {//detects if player is out of bounds and places him back on track
 		Vector3 movementVector = NavigateTowardWaypoint();
-
-		// Set velocity to direction * speed * deltaTime.
-		//GetComponent<Rigidbody>().velocity = movementVector.normalized * speed * Time.deltaTime;
-		//GetComponent<Rigidbody>().rotation = Quaternion.Euler((movementVector.normalized) * rotationSpeed * Time.deltaTime);
-		//GetComponent<Rigidbody>().rotation = Quaternion.Euler(0,movementVector.y-30,0);
-		//transform.LookAt(movementVector);
-		//movementVector.y=0;
-		if (movementVector.magnitude >= 650.0f) {
+		if (movementVector.magnitude >= 1600.0f) {
 			transform.position = waypoints [lastWaypoint].position;
 			transform.rotation = Quaternion.LookRotation(movementVector);
 		}
 
 	}
 
-    Vector3 NavigateTowardWaypoint()
+    Vector3 NavigateTowardWaypoint()//updates current waypoint and last waypoint
     {
 		// This tells us how close we get to a waypoint before we turn our attention
 		// to the next waypoint.
-		float neighborhood = 400.0f;
+		float neighborhood = 600.0f;
 
-		Vector3 movementVector =
-			waypoints[currentWaypoint].position - transform.position;
-
-		//print("*** Distance: " + movementVector.magnitude);
+		Vector3 movementVector = waypoints[currentWaypoint].position - transform.position;
 
 		// Are we in the neighborhood of the target waypoint?
 		if (movementVector.magnitude <= neighborhood)
@@ -70,13 +74,15 @@ public class boundryScript : MonoBehaviour {
 			// Yes; focus our attention on the next waypoint in the path.
 			lastWaypoint=currentWaypoint;
 			currentWaypoint = (currentWaypoint + 1) % waypoints.Length;
-//			int rand = Random.Range(1, waypoints.Length -1);
-//          currentWaypoint = (currentWaypoint + rand) % waypoints.Length;
-
-           // print("Current waypoint: " + currentWaypoint + "    Relative Position: " + movementVector);
         }
-		movementVector =
-			waypoints[lastWaypoint].position - transform.position;
+		movementVector = waypoints[lastWaypoint].position - transform.position;
         return movementVector;
     }
+	void OnTriggerEnter(Collider other){//detects collision with ai
+		Vector3 aiVec = waypoints [currentWaypoint].position - other.transform.position;
+		Vector3 plVec = waypoints [currentWaypoint].position - transform.position;
+		if (other.name.Equals("Cube")&&plVec.magnitude<aiVec.magnitude){
+			spinO=true;
+		}
+	}
 }
