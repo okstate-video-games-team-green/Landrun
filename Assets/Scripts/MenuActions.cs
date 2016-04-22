@@ -5,7 +5,8 @@ public class MenuActions : MonoBehaviour {
 
 	public TrackState trackState;
 	public Canvas canvas;
-	public GameObject startPanel;
+	public GameObject initialPanel;
+	public GameObject startGamePanel;
 	public GameObject learnMorePanel;
 	public GameObject aboutPanel;
 	public GameObject optionsPanel;
@@ -14,14 +15,18 @@ public class MenuActions : MonoBehaviour {
 	public void StartRace() {
 		//hide canvas
 		canvas.enabled= false;
-		startPanel.SetActive (false);
+		initialPanel.SetActive (false);
 		trackState.StartRace();
 	}
 
 	public void ShowInitial() {
-		print ("I am running");
 		HideAllPanels ();
-		startPanel.SetActive (true);
+		initialPanel.SetActive (true);
+	}
+
+	public void ShowStartGame() {
+		HideAllPanels ();
+		startGamePanel.SetActive (true);
 	}
 
 	public void ShowLearnMore() {
@@ -47,7 +52,8 @@ public class MenuActions : MonoBehaviour {
 
 	//used primarily to clear current visible panel
 	private void HideAllPanels() {
-		startPanel.SetActive(false);
+		initialPanel.SetActive(false);
+		startGamePanel.SetActive (false);
 		learnMorePanel.SetActive(false);
 		aboutPanel.SetActive(false);
 		optionsPanel.SetActive(false);
