@@ -18,6 +18,12 @@ public class MenuActions : MonoBehaviour {
 		trackState.StartRace();
 	}
 
+	public void ShowInitial() {
+		print ("I am running");
+		HideAllPanels ();
+		startPanel.SetActive (true);
+	}
+
 	public void ShowLearnMore() {
 		HideAllPanels ();
 		learnMorePanel.SetActive (true);
