@@ -46,8 +46,16 @@ public class MenuActions : MonoBehaviour {
 	}
 		
 	public void ShowQuit() {
-		HideAllPanels ();
+		//HideAllPanels ();
 		quitPanel.SetActive (true);
+	}
+
+	public void Quit() {
+		Application.Quit ();
+	}
+
+	public void HideQuit() {
+		quitPanel.SetActive (false);
 	}
 
 	//used primarily to clear current visible panel
