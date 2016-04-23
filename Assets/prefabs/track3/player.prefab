@@ -1251,6 +1251,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: -0.9996936
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Name
+      value: player1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196252}
