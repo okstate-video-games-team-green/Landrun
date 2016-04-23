@@ -143,6 +143,14 @@ public class SplineInterpolator : MonoBehaviour
 			throw new System.Exception("Invalid number of points");
 	}
 
+	public void Pause() {
+		mState = "Reset";
+	}
+
+	public void UnPause() {
+		mState = "Once";
+	}
+
 	void SetExplicitMode()
 	{
 		if (mState != "Reset")

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
+
 
 public class MenuActions : MonoBehaviour {
 
@@ -14,7 +16,7 @@ public class MenuActions : MonoBehaviour {
 
 	public void StartRace() {
 		//hide canvas
-		canvas.enabled= false;
+		HideAllPanels();//canvas.enabled= false;
 		initialPanel.SetActive (false);
 		trackState.StartRace();
 	}
@@ -46,7 +48,6 @@ public class MenuActions : MonoBehaviour {
 	}
 		
 	public void ShowQuit() {
-		//HideAllPanels ();
 		quitPanel.SetActive (true);
 	}
 

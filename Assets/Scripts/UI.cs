@@ -17,7 +17,7 @@ public class UI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (trackState.inProgress) {
-			timeT.text = string.Format ("Time: {0}", Time.time - trackState.lastRaceStart);
+			timeT.text = string.Format ("Time: {0}", trackState.accumulatedTime);
 		}
 		
 	}

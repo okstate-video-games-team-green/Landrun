@@ -424,7 +424,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 143768924}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 331557347}
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &143768924
@@ -849,7 +860,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 227152754}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 331557347}
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &227152754
@@ -1035,6 +1057,12 @@ CanvasRenderer:
 GameObject:
   m_PrefabParentObject: {fileID: 122198, guid: d64e6425ec59f484090732cba22fd55e, type: 2}
   m_PrefabInternal: {fileID: 1481690523}
+--- !u!114 &329563033 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11401556, guid: d64e6425ec59f484090732cba22fd55e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1481690523}
+  m_Script: {fileID: 11500000, guid: b91fc2acf3dff764b97fa7354205d023, type: 3}
 --- !u!114 &329563038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1145,6 +1173,7 @@ GameObject:
   - 114: {fileID: 331557341}
   - 114: {fileID: 331557345}
   - 114: {fileID: 331557346}
+  - 114: {fileID: 331557347}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1243,6 +1272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a2a6393aa250c4daab8c975bbe6207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  si: {fileID: 329563033}
 --- !u!114 &331557346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,6 +1292,20 @@ MonoBehaviour:
   aboutPanel: {fileID: 1251003428}
   optionsPanel: {fileID: 871577904}
   quitPanel: {fileID: 948185172}
+--- !u!114 &331557347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 331557340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c509cfa14bb5b4cb9958e9bd49dc9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseKey: 27
+  restartMenu: {fileID: 1599185878}
+  trackState: {fileID: 331557345}
 --- !u!1 &389643977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2471,7 +2515,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 786217817}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 331557347}
+        m_MethodName: CloseRestartMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &786217817
