@@ -4969,6 +4969,56 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1079381284}
   m_GameObject: {fileID: 1135501871}
   m_Mesh: {fileID: 4300154, guid: d1f3b23fe3b60f244b6fa755ff81dcf8, type: 3}
+--- !u!1001 &1139704863
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2648.9893
+      objectReference: {fileID: 0}
+    - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.0003346885
+      objectReference: {fileID: 0}
+    - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -2807.571
+      objectReference: {fileID: 0}
+    - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.094870284
+      objectReference: {fileID: 0}
+    - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.52507174
+      objectReference: {fileID: 0}
+    - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.0810399
+      objectReference: {fileID: 0}
+    - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.84186214
+      objectReference: {fileID: 0}
+    - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401878, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042564, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+      propertyPath: far clip plane
+      value: 2000
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1143839820
 GameObject:
   m_ObjectHideFlags: 0
@@ -5223,7 +5273,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!1 &1208637977
 GameObject:
   m_ObjectHideFlags: 0
@@ -8809,7 +8859,7 @@ Transform:
   - {fileID: 1476435360}
   - {fileID: 676305568}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1784950928
 GameObject:
   m_ObjectHideFlags: 0
