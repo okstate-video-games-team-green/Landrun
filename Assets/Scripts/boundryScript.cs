@@ -9,11 +9,15 @@ public class boundryScript : MonoBehaviour {
 	private int spinC=0;
 	private Vector3 lookPos;
 	private Quaternion rotation;
+	public AudioSource fI;
+	private AudioSource sO;
+
 
     public GameObject waypointContainer;
 
 	// Use this for initialization
 	void Start () {
+		sO = GetComponent<AudioSource> ();
 	    // Copy waypoint info from public variable.  The container itself is among the transforms
 		// in the container.
         Transform[] potentialWaypoints = waypointContainer.GetComponentsInChildren<Transform>();
@@ -39,6 +43,7 @@ public class boundryScript : MonoBehaviour {
 			lookPos.y = 0;
 			rotation = Quaternion.LookRotation(lookPos);
 			spinC++;
+			sO.Play();
 		}
 		else if (spinO && spinC < 360) {
 			
@@ -57,7 +62,8 @@ public class boundryScript : MonoBehaviour {
 			transform.position = waypoints [lastWaypoint].position;
 			transform.rotation = Quaternion.LookRotation(movementVector);
 		}
-
+		if (currentWaypoint + 1 == 0)
+			fI.Play();
 	}
 
     Vector3 NavigateTowardWaypoint()//updates current waypoint and last waypoint
