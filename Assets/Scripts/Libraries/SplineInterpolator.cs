@@ -16,7 +16,9 @@ public class SplineInterpolator : MonoBehaviour
 	private Vector3 lookPos;
 	private Quaternion rotation;
 	public GameObject waypointContainer;
+	private AudioSource sO;
 	void Start () {//sets up the waypoints to be used later
+		sO = GetComponent<AudioSource> ();
 		Transform[] potentialWaypoints = waypointContainer.GetComponentsInChildren<Transform>();
 		waypoints = new Transform[potentialWaypoints.Length - 1]; 
 		for (int i = 0, j = 0; i < potentialWaypoints.Length; i++)
@@ -34,6 +36,7 @@ public class SplineInterpolator : MonoBehaviour
 			lookPos.y = 0;
 			rotation = Quaternion.LookRotation(lookPos);
 			spinC++;
+			sO.Play();
 		}
 		else if (spinO && spinC < 360) {
 
