@@ -16,23 +16,13 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		//float xMov = Input.GetAxis ("Horizontal");
+	void Update () {//moves the player forward/backward and looks right/left
 		float zMov = Input.GetAxis ("Vertical");
-		//Vector3 movHoriz = transform.right * xMov;
 		Vector3 movVert = transform.forward * zMov;
-		Vector3 velocity = (/*movHoriz + */movVert).normalized * speed;
+		Vector3 velocity = (movVert).normalized * speed;
 		movement.Move (-velocity);
-		//float yRot = Input.GetAxis ("Mouse X");
 		float yRot = Input.GetAxis ("Horizontal");
 		Vector3 rotation=new Vector3(0,yRot,0)*rotationSpeed;
 		movement.Rotate(rotation);
 	}
-	/*void OnBecameInvisible() {
-		Destroy (this.gameObject);
-		WinG ();
-	}
-	public void WinG(){
-		SceneManager.LoadScene ("S2");
-	}*/
 }

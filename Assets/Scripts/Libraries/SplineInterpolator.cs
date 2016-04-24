@@ -13,8 +13,10 @@ public class SplineInterpolator : MonoBehaviour
 	private int currentWaypoint = 0;
 	private bool spinO=false;
 	private int spinC=0;
+	private Vector3 lookPos;
+	private Quaternion rotation;
 	public GameObject waypointContainer;
-	void Start () {
+	void Start () {//sets up the waypoints to be used later
 		Transform[] potentialWaypoints = waypointContainer.GetComponentsInChildren<Transform>();
 		waypoints = new Transform[potentialWaypoints.Length - 1]; 
 		for (int i = 0, j = 0; i < potentialWaypoints.Length; i++)
@@ -25,22 +27,25 @@ public class SplineInterpolator : MonoBehaviour
 			}
 		}
 	}
-	void FixedUpdate(){
+	void FixedUpdate(){//responsible for implementing the spin out animation
 		NavigateTowardWaypoint();
-		if (spinO && spinC < 4) {
-			var lookPos = waypoints[currentWaypoint].position - transform.position;
+		if (spinO && spinC == 0) {
+			lookPos = waypoints[currentWaypoint].position - transform.position;
 			lookPos.y = 0;
-			var rotation = Quaternion.LookRotation(lookPos);
-			rotation *= Quaternion.Euler(0, 90, 0); // this add a 90 degrees Y rotation
-			transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime*100);
+			rotation = Quaternion.LookRotation(lookPos);
 			spinC++;
-			print ("spin out ai");
+		}
+		else if (spinO && spinC < 360) {
+
+			rotation *= Quaternion.Euler(0, 1, 0); // this add a 1 degree Y rotation
+			transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
+			spinC++;
 		} else {
 			spinO = false;
 			spinC = 0;
 		}
 	}
-	Vector3 NavigateTowardWaypoint(){
+	Vector3 NavigateTowardWaypoint(){//updates current waypoint
 		float neighborhood = 10.6f;
 		Vector3 movementVector =waypoints[currentWaypoint].position - transform.position;
 		if (movementVector.magnitude <= neighborhood){
@@ -48,11 +53,10 @@ public class SplineInterpolator : MonoBehaviour
 		}
 		return movementVector;
 	}
-	void OnTriggerEnter(Collider other){
+	void OnTriggerEnter(Collider other){//detects collision with player
 		Vector3 plVec = waypoints [currentWaypoint].position - other.transform.position;
 		Vector3 aiVec = waypoints [currentWaypoint].position - transform.position;
 		if (other.name.Equals("Cube")&&plVec.magnitude>aiVec.magnitude){
-			//print ("spin out ai");
 			spinO=true;
 		}
 	}
