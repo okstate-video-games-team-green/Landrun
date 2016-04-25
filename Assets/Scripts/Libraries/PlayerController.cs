@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour {
 		float yRot = Input.GetAxis ("Horizontal");
 		Vector3 rotation=new Vector3(0,yRot,0)*rotationSpeed;
 		movement.Rotate(rotation);   
+
        
 	}
 	
