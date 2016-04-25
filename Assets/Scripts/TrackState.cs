@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 public class TrackState : MonoBehaviour {
-	private bool _inProgress = false;
+	public bool _inProgress = false;
 	private float lastRaceStart = 0;
 	private float historicalTime = 0;//time accumulated b/f latest unpause
 
