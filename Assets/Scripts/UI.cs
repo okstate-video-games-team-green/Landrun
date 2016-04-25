@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class UI : MonoBehaviour {
 	public Text timeT;
-	private float timeF=0f;
+	public TrackState trackState;
 
 
 	// Use this for initialization
@@ -16,7 +16,9 @@ public class UI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		timeT.text = string.Format ("Time: {0}",timeF);
-		timeF+=Time.deltaTime;
+		if (trackState.inProgress) {
+			timeT.text = string.Format ("Time: {0}", trackState.accumulatedTime);
+		}
+		
 	}
 }

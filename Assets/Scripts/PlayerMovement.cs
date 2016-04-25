@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour {
 	private Rigidbody rigidBody;
 	private Vector3 rotation = Vector3.zero;
 
+	public TrackState trackState;
+
 	// Use this for initialization
 	void Start () {
 		rigidBody = GetComponent<Rigidbody> ();
@@ -17,11 +19,19 @@ public class PlayerMovement : MonoBehaviour {
     {}
 
 	public void Move(Vector3 _velocity){
-		velocity = _velocity;
+		if (trackState.inProgress) {
+			velocity = _velocity;
+		} else {
+			velocity = Vector3.zero;
+		}
 	}
 
 	public void Rotate(Vector3 _rotation){
-		rotation = _rotation;
+		if (trackState.inProgress) {
+			rotation = _rotation;
+		} else {
+			rotation = Vector3.zero;
+		}
 	}
 
 	void FixedUpdate()
