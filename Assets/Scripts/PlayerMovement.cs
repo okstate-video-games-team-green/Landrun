@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        // Reference - http://answers.unity3d.com/questions/10323/calculating-a-movement-direction-that-is-a-tangent.html
+		
 	}
 
 	public void Move(Vector3 _velocity){
@@ -36,12 +36,8 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
-	void FixedUpdate()
-    {
-        
-        
-        
-        rigidBody.MovePosition (rigidBody.position + velocity * Time.fixedDeltaTime);
+	void FixedUpdate(){
+		rigidBody.MovePosition (rigidBody.position + velocity * Time.fixedDeltaTime);
 		rigidBody.MoveRotation (rigidBody.rotation * Quaternion.Euler (rotation));
 	}
 }
