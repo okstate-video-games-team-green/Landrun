@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 462610}
-  - 114: {fileID: 11451734}
+  - 114: {fileID: 11431802}
   m_Layer: 0
   m_Name: pioneerwomanPrefab
   m_TagString: Untagged
@@ -294,7 +294,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169248}
   m_Mesh: {fileID: 4300000, guid: c2e602520eeee2f4bb708f786d5f9be7, type: 3}
---- !u!114 &11451734
+--- !u!114 &11431802
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 172508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caef01a7e19065e49b04b09f2ee6927f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f41b649ef41e174da88de9983afba15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &100100000

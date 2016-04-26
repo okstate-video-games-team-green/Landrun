@@ -9,6 +9,7 @@ TagManager:
   - grassplane
   - cowboyseat
   - womanseat
+  - Beardmanseat
   layers:
   - Default
   - TransparentFX

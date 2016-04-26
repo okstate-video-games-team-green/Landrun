@@ -1261,7 +1261,7 @@ Prefab:
       objectReference: {fileID: 1779842547}
     - target: {fileID: 138482, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11461874, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
       propertyPath: trackState
@@ -2659,6 +2659,33 @@ WheelCollider:
 Transform:
   m_PrefabParentObject: {fileID: 447132, guid: d64e6425ec59f484090732cba22fd55e, type: 2}
   m_PrefabInternal: {fileID: 124372862}
+--- !u!1 &1340933623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1340933624}
+  m_Layer: 0
+  m_Name: start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1340933624
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340933623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -100.88, y: 6.04, z: -79.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
 --- !u!1 &1384121153
 GameObject:
   m_ObjectHideFlags: 0
@@ -3138,6 +3165,32 @@ Canvas:
   m_PrefabParentObject: {fileID: 22374602, guid: 57672c92bd426464eb0abd53d7963f1c,
     type: 2}
   m_PrefabInternal: {fileID: 1669983288}
+--- !u!114 &1669983301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1669983289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c164aa2617a9cb243a331006d1d732d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BeardmanPrefab: {fileID: 0}
+  PioneerWomanPrefab: {fileID: 0}
+  cowboyPrefab: {fileID: 0}
+--- !u!114 &1669983302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1669983289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716df6ab514c1a84ca79594792769025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: {fileID: 1340933623}
 --- !u!1 &1709754134 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 161584, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}

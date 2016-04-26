@@ -6,7 +6,9 @@ public class CharacterSitOnWagon : MonoBehaviour {
 
 	private GameObject wagon;
 
-
+	void Awake () {
+		DontDestroyOnLoad (gameObject.transform);
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +20,7 @@ public class CharacterSitOnWagon : MonoBehaviour {
 	
 
 
-		wagon = GameObject.FindWithTag("Player");
+		wagon = GameObject.FindWithTag("Beardmanseat");
 
 
 

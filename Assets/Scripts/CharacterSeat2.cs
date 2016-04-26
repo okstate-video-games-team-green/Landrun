@@ -4,7 +4,9 @@ using System.Collections;
 public class CharacterSeat2 : MonoBehaviour {
 	private GameObject wagon;
 
-
+	void Awake () {
+		DontDestroyOnLoad (gameObject.transform);
+	}
 
 	// Use this for initialization
 	void Start () {

@@ -1542,6 +1542,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 330068678}
   - 114: {fileID: 330068679}
+  - 114: {fileID: 330068680}
   m_Layer: 5
   m_Name: CharacterSelectorSlider
   m_TagString: Untagged
@@ -1617,6 +1618,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &330068680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 330068677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b1696a8c2f6b7e4c9719dd837490b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &331557340
 GameObject:
   m_ObjectHideFlags: 0
@@ -4374,6 +4386,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 331557348}
+        m_MethodName: characterCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 331557348}
         m_MethodName: PlayTrack2
         m_Mode: 1
         m_Arguments:
@@ -5327,7 +5350,7 @@ GameObject:
   - 4: {fileID: 1205901841}
   m_Layer: 0
   m_Name: beardmanseat
-  m_TagString: Player
+  m_TagString: Beardmanseat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5992,6 +6015,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 331557348}
+        m_MethodName: characterCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 331557348}
         m_MethodName: PlayTrack3
         m_Mode: 1
@@ -8800,9 +8834,10 @@ GameObject:
   - 114: {fileID: 1851978509}
   - 114: {fileID: 1851978508}
   - 82: {fileID: 1851978507}
+  - 114: {fileID: 1851978513}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8956,6 +8991,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1851978513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1851978506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b1696a8c2f6b7e4c9719dd837490b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1868613297
 GameObject:
   m_ObjectHideFlags: 0
