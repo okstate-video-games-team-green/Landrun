@@ -16,7 +16,13 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update ()
+<<<<<<< HEAD
     {}
+=======
+    {
+		
+	}
+>>>>>>> d00318f0e5fc375d4aa5b994b18bdc7558e66cfa
 
 	public void Move(Vector3 _velocity){
 		if (trackState.inProgress) {
@@ -34,6 +40,13 @@ public class PlayerMovement : MonoBehaviour {
 		}
 	}
 
+<<<<<<< HEAD
 	void FixedUpdate()
     {}
+=======
+	void FixedUpdate(){
+		rigidBody.MovePosition (rigidBody.position + velocity * Time.fixedDeltaTime);
+		rigidBody.MoveRotation (rigidBody.rotation * Quaternion.Euler (rotation));
+	}
+>>>>>>> d00318f0e5fc375d4aa5b994b18bdc7558e66cfa
 }
