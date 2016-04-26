@@ -2012,6 +2012,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2052,6 +2053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inProgress: 0
   si: {fileID: 329563033}
+  si2: {fileID: 1618745350}
 --- !u!114 &331557346
 MonoBehaviour:
   m_ObjectHideFlags: 0

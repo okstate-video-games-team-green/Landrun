@@ -8,6 +8,7 @@ public class TrackState : MonoBehaviour {
 	private float historicalTime = 0;//time accumulated b/f latest unpause
 
 	public SplineInterpolator si;//trying to minimize amount we have to modify lib code
+	public SplineInterpolator si2;
 
 	public bool inProgress {
 		get {
@@ -31,6 +32,7 @@ public class TrackState : MonoBehaviour {
 			return;
 		}
 		si.Pause ();
+		si2.Pause ();
 		_inProgress = false;
 		historicalTime = accumulatedTime;
 	}
@@ -40,6 +42,7 @@ public class TrackState : MonoBehaviour {
 			return;
 		}*/
 		si.UnPause ();
+		si2.UnPause ();
 		lastRaceStart = Time.time;
 		_inProgress = true;
 	}
