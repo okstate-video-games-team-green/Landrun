@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeT: {fileID: 11409018}
+  trackState: {fileID: 0}
 --- !u!114 &11409018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,8 +140,9 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!224 &22401822
 RectTransform:
