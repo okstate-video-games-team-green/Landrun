@@ -36,9 +36,9 @@ public class TrackState : MonoBehaviour {
 	}
 
 	public void UnpauseRace() {
-		if (lastRaceStart == 0) { //race is not going on so return
+		/*if (lastRaceStart == 0) { //race is not going on so return
 			return;
-		}
+		}*/
 		si.UnPause ();
 		lastRaceStart = Time.time;
 		_inProgress = true;
