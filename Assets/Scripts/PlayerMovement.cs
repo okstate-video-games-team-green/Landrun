@@ -15,12 +15,22 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+
+	void OnLevelWasLoaded(){
+		
+		trackState = GameObject.Find ("Canvas").GetComponent<TrackState> ();
+
+	}
+
+
+
 	void Update ()
     {
 		
 	}
 
 	public void Move(Vector3 _velocity){
+		
 		if (trackState.inProgress) {
 			velocity = _velocity;
 		} else {
@@ -29,6 +39,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void Rotate(Vector3 _rotation){
+		
 		if (trackState.inProgress) {
 			rotation = _rotation;
 		} else {
