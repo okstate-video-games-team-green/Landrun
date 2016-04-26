@@ -4,7 +4,7 @@ using System.Collections;
 public class CharacterSitOnWagon : MonoBehaviour {
 
 
-	public GameObject wagon;
+	private GameObject wagon;
 
 
 
@@ -16,7 +16,15 @@ public class CharacterSitOnWagon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		gameObject.transform.position = wagon.transform.position;
+
+
+		wagon = GameObject.FindWithTag("Player");
+
+
+
+		gameObject.transform.position = wagon.transform.position ;
+		gameObject.transform.rotation = wagon.transform.rotation ;
+
 
 	}
 }

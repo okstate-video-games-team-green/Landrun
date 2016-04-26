@@ -7,6 +7,8 @@ TagManager:
   - map
   - terrain
   - grassplane
+  - cowboyseat
+  - womanseat
   layers:
   - Default
   - TransparentFX
