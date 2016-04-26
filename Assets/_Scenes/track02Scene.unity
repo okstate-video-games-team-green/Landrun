@@ -1155,15 +1155,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -99.04
+      value: -98.43
       objectReference: {fileID: 0}
     - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 22.24
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -71.94
+      value: -72.51
       objectReference: {fileID: 0}
     - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1223,7 +1223,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5473952, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
       propertyPath: m_Drag
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 489602, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
       propertyPath: m_LocalScale.x
@@ -1249,6 +1249,14 @@ Prefab:
       propertyPath: trackState
       value: 
       objectReference: {fileID: 1669983292}
+    - target: {fileID: 11462820, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+      propertyPath: speed
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462820, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
+      propertyPath: rotationSpeed
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7764cd9e7d174a145a76ed7efe16f085, type: 2}
   m_IsPrefabParent: 0
@@ -1683,7 +1691,7 @@ MeshCollider:
   m_GameObject: {fileID: 750562064}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300004, guid: 150905259b108fe4f942b3f8061358f8, type: 3}
@@ -2812,7 +2820,7 @@ MeshCollider:
   m_GameObject: {fileID: 1659554759}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300002, guid: 150905259b108fe4f942b3f8061358f8, type: 3}
